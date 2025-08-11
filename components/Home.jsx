@@ -12,7 +12,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-4xl font-bold mb-6"
           >
-            Hi, I'm Vaibhav Sapaliya 🚀
+            Hi, I'm Vaibhav Sapaliya 
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -20,7 +20,7 @@ export default function Home() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="max-w-xl text-lg"
           >
-            Welcome to my portfolio! This is built with Next.js, Tailwind CSS, and Framer Motion.
+            Welcome to my portfolio! Software Engineer with a passion for building scalable web applications. I love creating user-friendly interfaces and exploring new technologies.
           </motion.p>
         </div>
         {/* Right: Profile Image */}
