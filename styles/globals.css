@@ -9,3 +9,20 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* globals.css */
+.backdrop-blur {
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+/* tiny inner highlight on the pill */
+.pill-highlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(29, 34, 40, 0.096), transparent 80%);
+  pointer-events: none;
+}
+
