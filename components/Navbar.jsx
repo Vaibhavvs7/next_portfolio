@@ -11,14 +11,13 @@ export default function Navbar() {
     { href: "#projects", label: "Projects" },
     { href: "#skills", label: "Skills" },
     { href: "#experience", label: "Experience" },
-    { href: "#blog", label: "Blog" },      // optional — remove if you don't have one
     { href: "#contact", label: "Contact" },
   ];
 
   return (
     <header className="fixed top-10 left-1/2 transform -translate-x-1/2 w-[98%] max-w-7xl z-50">
       <nav
-        className="relative bg-neutral-800/95 text-white rounded-3xl px-5 py-3 flex items-center justify-between shadow-[0_18px_40px_rgba(0,0,0,0.35)] border border-white/6 backdrop-blur pill-highlight"
+        className="relative bg-neutral-700/30 text-white rounded-3xl px-5 py-3 flex items-center justify-between shadow-[0_18px_40px_rgba(0,0,0,0.35)] border border-white/4 backdrop-blur pill-highlight"
         aria-label="Primary"
       >
         {/* Left Links (desktop) */}
