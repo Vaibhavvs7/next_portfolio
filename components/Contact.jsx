@@ -12,7 +12,7 @@ export default function Contact() {
                         href="mailto:your.email@example.com"
                         className="text-purple-600 underline hover:text-purple-800 transition"
                     >
-                        your.email@example.com
+                        vvsvaibhav07@gmail.com
                     </a>
                 </p>
                 <div className="flex justify-center gap-6">
