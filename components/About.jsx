@@ -10,7 +10,7 @@ export default function About() {
           <div>
             <h3 className="text-2xl font-bold mb-4 text-blue-700 dark:text-blue-400">Education</h3>
             <ul className="space-y-6">
-              <li>
+              <li className="bg-white dark:bg-slate-800/60 border border-blue-100 dark:border-blue-900 rounded-xl shadow-sm p-5 transition hover:shadow-lg">
                 <div className="font-semibold text-lg">B.Tech in Computer Science</div>
                 <div className="text-gray-600 dark:text-gray-400">XYZ University, 2021</div>
                 <div className="text-sm text-gray-500 dark:text-gray-500">CGPA: 8.7/10</div>
