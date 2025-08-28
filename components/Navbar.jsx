@@ -7,7 +7,7 @@ export default function Navbar() {
 
   // Portfolio-focused links
   const navLinks = [
-    { href: "#about", label: "About" },
+    { href: "#home", label: "Home" },
     { href: "#projects", label: "Projects" },
     { href: "#skills", label: "Skills" },
     { href: "#experience", label: "Experience" },
