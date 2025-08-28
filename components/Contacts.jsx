@@ -5,7 +5,7 @@ export default function Contacts() {
             aria-labelledby="contact-title"
             className="min-h-screen flex items-center justify-center px-6 py-16 bg-gradient-to-b from-gray-50 to-white dark:from-slate-950 dark:to-slate-900"
         >
-            <div className="max-w-3xl w-full bg-white/60 dark:bg-white/5 backdrop-blur-md rounded-2xl shadow-lg ring-1 ring-black/5 dark:ring-white/10 p-8 md:p-12 text-center">
+            <div className="max-w-3xl w-full bg-white dark:bg-slate-800/60 border border-blue-100 dark:border-blue-900 rounded-xl shadow-sm p-8 md:p-12 text-center">
                 <h2
                     id="contact-title"
                     className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight"
@@ -47,10 +47,10 @@ export default function Contacts() {
                     </a>
                 </div>
                 <a
-                    href="#about"
+                    href="#home"
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-gray-900 hover:bg-gray-100 dark:bg-white/10 dark:text-white dark:hover:bg-white/15 ring-1 ring-gray-200 dark:ring-white/10 shadow-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
                 >
-                    Back to About
+                    Back to Home
                 </a>
             </div>
         </section>
