@@ -1,5 +1,6 @@
 import About from './About'
 import Contacts from './Contacts'
+import Experience from './Experience'
 import Home from './Home'
 import Navbar from './Navbar'
 import Projects from './Projects'
@@ -10,6 +11,7 @@ export default function Portfolio() {
       <Navbar />
       <Home/>
       <About/>
+      <Experience/>
       <Projects/>
       <Contacts/>
     </>
