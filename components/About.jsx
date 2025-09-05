@@ -5,25 +5,30 @@ export default function About() {
       className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-16 bg-gradient-to-br from-slate-50 via-blue-50 to-white dark:from-slate-900 dark:via-blue-950/20 dark:to-slate-900"
     >
       <div className="max-w-5xl w-full relative">
-        <div className="grid md:grid-cols-2 gap-8 items-start">
+        <div className="grid md:grid-cols-2 gap-6 items-start">
           {/*Left Section*/}
           <div>
             <h3 className="text-2xl font-bold mb-4 text-blue-700 dark:text-blue-400">Education</h3>
             <ul className="space-y-6">
               <li className="bg-white dark:bg-slate-800/60 border border-blue-100 dark:border-blue-900 rounded-xl shadow-sm p-5 transition hover:shadow-lg">
-                <div className="font-semibold text-lg">B.Tech in Computer Science</div>
-                <div className="text-gray-600 dark:text-gray-400">XYZ University, 2021</div>
-                <div className="text-sm text-gray-500 dark:text-gray-500">CGPA: 8.7/10</div>
+                <div className="font-semibold text-lg">BE in Computer Engineering</div>
+                <div className="text-gray-600 dark:text-gray-400">Vidyavardhini's College of Engineering & Technology, 2022-2026</div>
+                <div className="text-sm text-gray-500 dark:text-gray-500">CGPA: 8.87/10</div>
+              </li>
+              <li className="bg-white dark:bg-slate-800/60 border border-blue-100 dark:border-blue-900 rounded-xl shadow-sm p-5 transition hover:shadow-lg">
+                <div className="font-semibold text-lg">MHTCET</div>
+                <div className="text-gray-600 dark:text-gray-400">Entrance Exam, 2022</div>
+                <div className="text-sm text-gray-500 dark:text-gray-500">Percentile : 96.7%</div>
               </li>
               <li className="bg-white dark:bg-slate-800/60 border border-blue-100 dark:border-blue-900 rounded-xl shadow-sm p-5 transition hover:shadow-lg">
                 <div className="font-semibold text-lg">Higher Secondary</div>
-                <div className="text-gray-600 dark:text-gray-400">ABC School, 2017</div>
-                <div className="text-sm text-gray-500 dark:text-gray-500">Percentage: 92%</div>
+                <div className="text-gray-600 dark:text-gray-400">Adarsh Education Society, 2020-2022</div>
+                <div className="text-sm text-gray-500 dark:text-gray-500">Percentage: 85.7%</div>
               </li>
               <li className="bg-white dark:bg-slate-800/60 border border-blue-100 dark:border-blue-900 rounded-xl shadow-sm p-5 transition hover:shadow-lg">
-                <div className="font-semibold text-lg">Higher Secondary</div>
-                <div className="text-gray-600 dark:text-gray-400">ABC School, 2017</div>
-                <div className="text-sm text-gray-500 dark:text-gray-500">Percentage: 92%</div>
+                <div className="font-semibold text-lg">Secondary School</div>
+                <div className="text-gray-600 dark:text-gray-400">Gurukul English High School, 2020</div>
+                <div className="text-sm text-gray-500 dark:text-gray-500">Percentage: 89%</div>
               </li>
               {/* Add more education items as needed */}
             </ul>
