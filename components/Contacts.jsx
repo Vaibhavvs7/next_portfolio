@@ -23,12 +23,12 @@ export default function Contacts() {
                         href="mailto:your.email@example.com"
                         className="font-semibold text-indigo-600 dark:text-indigo-400 underline decoration-indigo-300/50 hover:decoration-indigo-500 hover:text-indigo-700 dark:hover:text-indigo-300 transition"
                     >
-                        your.email@example.com
+                        vvsvaibhav07@gmail.com
                     </a>
                 </p>
                 <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-8">
                     <a
-                        href="https://linkedin.com/in/yourprofile"
+                        href="https://www.linkedin.com/in/vaibhavsapaliya/"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Open LinkedIn profile"
@@ -37,7 +37,7 @@ export default function Contacts() {
                         LinkedIn
                     </a>
                     <a
-                        href="https://github.com/yourusername"
+                        href="https://github.com/Vaibhavvs7"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Open GitHub profile"
