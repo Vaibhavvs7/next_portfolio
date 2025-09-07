@@ -43,12 +43,15 @@ export default function About() {
                 I’m <span className="font-semibold text-blue-600 dark:text-blue-400">Vaibhav</span> — a curious mind who loves building things and learning new tech.
                 When I’m not coding, you’ll find me exploring new gadgets, reading about AI, or hiking in nature.
               </p>
-              <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-2">
-              <li>💡 Value lifelong learning & collaboration</li>
-              <li>🎸 Play guitar to unwind</li>
-              <li>☕ Coffee enthusiast & meme connoisseur</li>
-              <li>🌍 Enjoy traveling and meeting new people</li>
-            </ul>
+              
+                <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-2">
+                  <li>🚀 Striving to become a top Software Development Engineer with strong problem-solving skills.</li>
+                  <li>📚 Growing daily through DSA practice and competitive coding.</li>
+                  <li>🤖 Exploring AI technologies and building real-world applications.</li>
+                  <li>📈 Passionate about finance, business, and startups.</li>
+                  <li>🏃 Staying energized with sports and fitness.</li>
+                  <li>🌱 Believing in progress over perfection.</li>
+                </ul>
             <div className="mt-6 bg-blue-50 dark:bg-slate-800/50 rounded-xl p-4 border-l-4 border-blue-500">
               <span className="italic">Fun fact:</span> I once built a chatbot that helps my friends pick movies!
             </div>
