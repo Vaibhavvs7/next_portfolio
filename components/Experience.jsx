@@ -13,7 +13,7 @@ export default function Experience() {
         <h2 className="text-4xl font-extrabold mb-8 text-blue-700 dark:text-blue-400">Work Experience</h2>
         <div className="grid md:grid-cols-2 gap-8 items-start bg-white dark:bg-slate-800/60 border border-blue-100 dark:border-blue-900 rounded-xl shadow-sm p-6 md:p-8 transition hover:shadow-lg relative">
           <div>
-            <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">Web Developer Intern</h3>
+            <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">Full Stack Developer Intern</h3>
             <div className="text-gray-600 dark:text-gray-300 mb-1">
               Aspiring Media Tech Pvt Ltd, Vasai, Maharashtra &middot; June 2024 – Sept 2024
             </div>
