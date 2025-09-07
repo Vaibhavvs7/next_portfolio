@@ -12,23 +12,31 @@ export default function Home() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl font-bold mb-6 leading-tight"
+            className="text-5xl md:text-6xl font-bold mb-6 leading-tight flex flex-wrap items-center justify-center md:justify-start gap-2"
           >
-            Hi, I'm{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-500">
+            Hi, I'm
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-500 ml-2">
               Vaibhav Sapaliya
             </span>
+            <span className="ml-1 text-4xl">👋</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-lg text-gray-700 dark:text-gray-300 max-w-xl mx-auto md:mx-0 mb-8"
+            className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-xl mx-auto md:mx-0 mb-4 font-medium"
           >
-            Welcome to my portfolio! I’m a Software Engineer passionate about
-            building scalable web applications and creating user-friendly
-            interfaces with modern technologies.
+            I’m a Software Engineer passionate about building scalable web applications and AI-powered solutions with a focus on clean design and great user experience.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto md:mx-0 mb-8"
+          >
+            <span className="inline-block align-middle mr-2">💡</span>
+            Turning ideas into reliable, user-friendly, and efficient software.
           </motion.p>
 
           {/* Call-to-actions */}
@@ -40,15 +48,24 @@ export default function Home() {
           >
             <Link
               href="#projects"
-              className="px-6 py-3 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-medium transition transform hover:scale-105"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-semibold transition transform hover:scale-105 shadow-md"
             >
-              View Projects
+              <span className="text-xl">🔗</span> View My Projects
             </Link>
+            <a
+              href="/Vaibhav_Resume.pdf"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-semibold transition transform hover:scale-105 shadow-md"
+            >
+              <span className="text-xl">📄</span> Download Resume
+            </a>
             <Link
               href="#contact"
-              className="px-6 py-3 rounded-full border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-medium transition transform hover:scale-105"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-semibold transition transform hover:scale-105 shadow-md"
             >
-              Contact Me
+              <span className="text-xl">✉️</span> Contact Me
             </Link>
           </motion.div>
         </div>
