@@ -59,7 +59,7 @@ export default function Navbar() {
         </div>
 
         {/* Right actions */}
-        <div className="flex items-center gap-2 md:gap-4">
+        <div className="flex items-center gap-2 md:gap-4 ml-auto">
           {/* Resume: regular anchor so we can use download and open in new tab */}
           <a
             href="/Vaibhav_Resume.pdf"
@@ -112,54 +112,54 @@ export default function Navbar() {
           <div className="fixed inset-0 z-40 bg-black/40 md:hidden" onClick={() => setOpen(false)}></div>
         )}
         {open && (
-          <div className="fixed top-0 left-0 right-0 mt-0 bg-neutral-800/98 border-b border-white/10 rounded-b-2xl p-4 shadow-lg md:hidden z-50" style={{maxWidth:'100vw'}}>
-            <div className="flex flex-col gap-3 pt-8">
-              {/* Put CTA first on mobile */}
-              <a
-                href="#contact"
-                onClick={e => { handleNavClick(e, "#contact"); }}
-                className="inline-block px-4 py-2 rounded-full bg-orange-500 hover:bg-orange-600 text-center text-white font-medium cursor-pointer"
-                aria-label="Hire Me"
-              >
-                Hire Me
-              </a>
+  <div
+    className="absolute top-full right-0 mt-2 w-60 bg-neutral-800/98 border border-white/10 rounded-xl p-4 shadow-lg md:hidden z-50"
+  >
+    <div className="flex flex-col gap-3">
+      <a
+        href="#contact"
+        onClick={e => { handleNavClick(e, "#contact"); }}
+        className="inline-block px-4 py-2 rounded-full bg-orange-500 hover:bg-orange-600 text-center text-white font-medium cursor-pointer"
+        aria-label="Hire Me"
+      >
+        Hire Me
+      </a>
 
-              <a
-                href="/Vaibhav_Resume.pdf"
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setOpen(false)}
-                className="block text-neutral-200 hover:text-white font-medium"
-                aria-label="Download resume"
-              >
-                Resume
-              </a>
+      <a
+        href="/Vaibhav_Resume.pdf"
+        download
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => setOpen(false)}
+        className="block text-neutral-200 hover:text-white font-medium"
+        aria-label="Download resume"
+      >
+        Resume
+      </a>
 
-              {/* Other nav links */}
-              {navLinks.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  onClick={e => handleNavClick(e, l.href)}
-                  className="block text-neutral-200 hover:text-white font-medium cursor-pointer px-2 py-1 rounded-lg focus-visible:outline focus-visible:ring-2 focus-visible:ring-orange-400"
-                  aria-label={l.label}
-                >
-                  {l.label}
-                </a>
-              ))}
+      {navLinks.map((l) => (
+        <a
+          key={l.href}
+          href={l.href}
+          onClick={e => handleNavClick(e, l.href)}
+          className="block text-neutral-200 hover:text-white font-medium cursor-pointer px-2 py-1 rounded-lg focus-visible:outline focus-visible:ring-2 focus-visible:ring-orange-400"
+          aria-label={l.label}
+        >
+          {l.label}
+        </a>
+      ))}
 
-              {/* Optional login — hidden on desktop by default */}
-              <Link
-                href="/login"
-                onClick={() => setOpen(false)}
-                className="pt-2 block text-neutral-200 hover:text-white font-medium"
-              >
-                Login
-              </Link>
-            </div>
-          </div>
-        )}
+      <Link
+        href="/login"
+        onClick={() => setOpen(false)}
+        className="pt-2 block text-neutral-200 hover:text-white font-medium"
+      >
+        Login
+      </Link>
+    </div>
+  </div>
+)}
+
       </nav>
     </header>
   );
