@@ -14,8 +14,8 @@ export default function Projects() {
         "Bcrypt",
         "Redis"
       ],
-      link: "https://github.com/Vaibhavvs7/rag-with-pinecone-langchain",
-      image: "/project1.jpg",
+      link: "https://github.com/Vaibhavvs7/AI-Powered-Real-Time-Collaborative-Coding-Platform",
+      image: "/x.jpg",
     },
     {
       title: "Chat-with-PDF RAG",
@@ -28,8 +28,8 @@ export default function Projects() {
         "Google Gemini",
         "PDF.js"
       ],
-      link: "https://github.com/Vaibhavvs7/AI-Powered-Real-Time-Collaborative-Coding-Platform",
-      image: "/project2.jpg",
+      link: "https://github.com/Vaibhavvs7/rag-with-pinecone-langchain",
+      image: "/rag.jpg",
     },
     {
       title: "X Post AI Agent using MCP",
