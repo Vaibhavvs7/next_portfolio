@@ -12,20 +12,20 @@ export default function Home() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl font-bold mb-6 leading-tight flex flex-wrap items-center justify-center md:justify-start gap-2"
+            className="text-5xl md:text-4xl font-bold mb-6 leading-tight flex flex-wrap items-center justify-center md:justify-start gap-2"
           >
             Hi, I'm
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-500 ml-2">
               Vaibhav Sapaliya
             </span>
-            <span className="ml-1 text-4xl">👋</span>
+            <span className="ml-1 text-3xl">👋</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-xl mx-auto md:mx-0 mb-4 font-medium"
+            className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-xl mx-auto md:mx-0 mb-4 font-normal"
           >
             I’m a Software Engineer passionate about building scalable web applications and AI-powered solutions with a focus on clean design and great user experience.
           </motion.p>
