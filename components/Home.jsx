@@ -53,7 +53,7 @@ export default function Home() {
               <span className="text-xl">🔗</span> View My Projects
             </Link>
             <a
-              href="/Vaibhav_Resume.pdf"
+              href="./Vaibhav_NoP.pdf"
               download
               target="_blank"
               rel="noopener noreferrer"
