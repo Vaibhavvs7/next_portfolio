@@ -62,12 +62,16 @@ export default function Contacts() {
                             Email
                         </a>
                     </div>
-                    <a
-                        href="#home"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-gray-900 hover:bg-gray-100 dark:bg-white/10 dark:text-white dark:hover:bg-white/15 ring-1 ring-gray-200 dark:ring-white/10 shadow-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
-                    >
-                        Back to Home
-                    </a>
+                                        <a
+                                                href="#home"
+                                                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-gray-900 hover:bg-gray-100 dark:bg-white/10 dark:text-white dark:hover:bg-white/15 ring-1 ring-gray-200 dark:ring-white/10 shadow-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+                                                onClick={e => {
+                                                    e.preventDefault();
+                                                    document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
+                                                }}
+                                        >
+                                                Back to Home
+                                        </a>
                 </div>
             </section>
             <footer className="w-full py-4 text-center text-sm text-gray-500 dark:text-gray-400 bg-transparent mt-1">
