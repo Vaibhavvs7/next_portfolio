@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-<section className="min-h-screen flex flex-col items-center justify-center px-6 pt-28 bg-gradient-to-b from-gray-50 to-white dark:from-slate-950 dark:to-slate-900">
+<section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 pt-28 bg-gradient-to-b from-gray-50 to-white dark:from-slate-950 dark:to-slate-900">
       <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl gap-12">
         
         {/* Left: Text */}
