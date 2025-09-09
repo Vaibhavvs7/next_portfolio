@@ -62,7 +62,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2 md:gap-4 ml-auto">
           {/* Resume: regular anchor so we can use download and open in new tab */}
           <a
-            href="/Vaibhav_Resume.pdf"
+            href="/Vaibhav_NoP.pdf"
             download
             target="_blank"
             rel="noopener noreferrer"
