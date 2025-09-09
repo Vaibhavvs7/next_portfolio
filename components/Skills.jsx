@@ -51,7 +51,7 @@ export default function Skills() {
     },
   ];
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-16 bg-gradient-to-b from-gray-50 to-white dark:from-slate-950 dark:to-slate-900">
+    <section id="skills" className="min-h-screen flex items-center justify-center px-6 py-16 bg-gradient-to-b from-gray-50 to-white dark:from-slate-950 dark:to-slate-900">
       <div className="max-w-5xl w-full">
         <h2 className="text-4xl font-extrabold mb-10 text-center text-blue-700 dark:text-blue-400 tracking-tight">Skills</h2>
         <div className="grid md:grid-cols-2 gap-8">
