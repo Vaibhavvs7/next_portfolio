@@ -15,7 +15,7 @@ export default function Skills() {
       icon: (
         <svg className="w-6 h-6 text-green-500 dark:text-green-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" /></svg>
       ),
-      items: ["React.js", "Node.js", "Express.js", "Socket.IO"],
+      items: ["React.js", "Next.js", "Node.js", "Express.js", "Socket.IO"],
     },
     {
       title: "Databases",
@@ -23,7 +23,7 @@ export default function Skills() {
       icon: (
         <svg className="w-6 h-6 text-blue-500 dark:text-blue-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><ellipse cx="12" cy="7" rx="8" ry="3" /><path d="M4 7v10c0 1.657 3.582 3 8 3s8-1.343 8-3V7" /></svg>
       ),
-      items: ["MongoDB", "MySQL", "PostgreSQL"],
+      items: ["MongoDB", "MySQL", "PostgreSQL", "Redis"],
     },
     {
       title: "APIs & Authentication",
