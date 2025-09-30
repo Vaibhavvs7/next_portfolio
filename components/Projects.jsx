@@ -15,7 +15,7 @@ export default function Projects() {
         "Redis"
       ],
       link: "https://github.com/Vaibhavvs7/AI-Powered-Real-Time-Collaborative-Coding-Platform",
-      image: "/x.jpg",
+      image: "/real.png",
     },
     {
       title: "Chat-with-PDF RAG",
