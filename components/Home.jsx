@@ -1,7 +1,31 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
+import React, { useState, useEffect } from "react";
+
+const name = "Vaibhav Sapaliya";
+const typingSpeed = 170; // milliseconds per letter
+const pause = 1000; // pause before restarting
 
 export default function Home() {
+  const [displayed, setDisplayed] = useState("");
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    let timeout;
+    if (index < name.length) {
+      timeout = setTimeout(() => {
+        setDisplayed((prev) => prev + name[index]);
+        setIndex(index + 1);
+      }, typingSpeed);
+    } else {
+      timeout = setTimeout(() => {
+        setDisplayed("");
+        setIndex(0);
+      }, pause);
+    }
+    return () => clearTimeout(timeout);
+  }, [index]);
+
   return (
 <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 pt-28 bg-gradient-to-b from-gray-50 to-white dark:from-slate-950 dark:to-slate-900">
       <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl gap-12">
@@ -16,7 +40,7 @@ export default function Home() {
           >
             Hi, I'm
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-500 ml-2">
-              Vaibhav Sapaliya
+              {displayed}
             </span>
             <span className="ml-1 text-3xl">👋</span>
           </motion.h1>
