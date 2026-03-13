@@ -1,81 +1,94 @@
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+
 export default function Skills() {
-  // Use only blue and green for all cards
-  const skills = [
-    {
-      title: "Languages",
-      color: "blue",
-      icon: (
-        <svg className="w-6 h-6 text-blue-500 dark:text-blue-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M16 18v-1a4 4 0 00-3-3.87M12 3v1m0 16v1m8-8h-1M4 12H3m15.36 6.36l-.7-.7M6.34 6.34l-.7-.7m12.02 0l-.7.7M6.34 17.66l-.7.7" /></svg>
-      ),
-      items: ["Java", "JavaScript", "Python"],
-    },
-    {
-      title: "Frameworks & Libraries",
-      color: "green",
-      icon: (
-        <svg className="w-6 h-6 text-green-500 dark:text-green-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" /></svg>
-      ),
-      items: ["React.js", "Next.js", "Node.js", "Express.js", "Socket.IO"],
-    },
-    {
-      title: "Databases",
-      color: "blue",
-      icon: (
-        <svg className="w-6 h-6 text-blue-500 dark:text-blue-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><ellipse cx="12" cy="7" rx="8" ry="3" /><path d="M4 7v10c0 1.657 3.582 3 8 3s8-1.343 8-3V7" /></svg>
-      ),
-      items: ["MongoDB", "MySQL", "PostgreSQL", "Redis"],
-    },
-    {
-      title: "APIs & Authentication",
-      color: "green",
-      icon: (
-        <svg className="w-6 h-6 text-green-500 dark:text-green-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m0 4v-2m0 0a4 4 0 100-8 4 4 0 000 8zm0-8V5m0 0a2 2 0 114 0 2 2 0 01-4 0z" /></svg>
-      ),
-      items: ["RESTful APIs", "JWT", "Clerk"],
-    },
-    {
-      title: "Developer Tools",
-      color: "blue",
-      icon: (
-        <svg className="w-6 h-6 text-blue-500 dark:text-blue-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L6 21h12l-3.75-4M12 3v14" /></svg>
-      ),
-      items: ["Git", "GitHub", "Postman", "Docker", "GitHub Actions"],
-    },
-    {
-      title: "AI-Data Science",
-      color: "green",
-      icon: (
-        <svg className="w-6 h-6 text-green-500 dark:text-green-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M8 12h8M12 8v8" /></svg>
-      ),
-      items: ["Pandas", "NumPy", "Matplotlib"],
-    },
-  ];
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const coreSkills = ["JavaScript", "React.js", "Node.js", "Next.js", "PostgreSQL", "MongoDB"];
+  const otherSkills = ["Python", "Java", "Docker", "Git", "REST APIs", "Socket.IO", "TypeScript", "Tailwind"];
+
   return (
-    <section id="skills" className="min-h-screen flex items-center justify-center px-6 py-16 bg-gradient-to-b from-gray-50 to-white dark:from-slate-950 dark:to-slate-900">
-      <div className="max-w-5xl w-full">
-        <h2 className="text-4xl font-extrabold mb-10 text-center text-blue-700 dark:text-blue-400 tracking-tight">Skills</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          {skills.map((cat) => (
-            <div
-              key={cat.title}
-              className={`bg-white dark:bg-slate-800/60 border border-${cat.color}-100 dark:border-${cat.color}-900 rounded-xl shadow-sm p-7 flex flex-col items-center transition hover:shadow-lg`}
-            >
-              <div className="flex items-center gap-2 mb-4">
-                {cat.icon}
-                <h3 className={`text-xl font-bold text-${cat.color}-700 dark:text-${cat.color}-300`}>{cat.title}</h3>
-              </div>
-              <div className="flex flex-wrap gap-3 justify-center">
-                {cat.items.map((t) => (
-                  <span
-                    key={t}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-[14px] font-medium bg-${cat.color}-50 text-${cat.color}-700 dark:bg-${cat.color}-500/15 dark:text-${cat.color}-200 ring-1 ring-${cat.color}-200/60 dark:ring-${cat.color}-400/20 shadow-sm`}
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
+    <section id="skills" className="min-h-screen flex flex-col items-center justify-center px-6 py-24 relative z-10 w-full overflow-hidden">
+      <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-12">
+        
+        {/* Left Side: Title & Description */}
+        <div className="md:w-1/2">
+          <motion.div
+             initial={{ opacity: 0, x: -30 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-extrabold text-zinc-900 dark:text-white mb-6 tracking-tight">Tech Ecosystem</h2>
+            <div className="h-1 w-20 bg-zinc-900 dark:bg-white rounded-full mb-8"></div>
+            <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8 leading-relaxed max-w-md">
+              My technical toolkit is built around the modern JavaScript ecosystem, augmented by powerful databases and robust backend frameworks. I focus on choosing the right tool for the job to build scalable, high-performance applications.
+            </p>
+            
+            <div className="flex flex-wrap gap-2">
+              {otherSkills.map((s, i) => (
+                <motion.span 
+                  key={s}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: i * 0.05 }}
+                  viewport={{ once: true }}
+                  className="px-3 py-1.5 rounded-full text-xs font-bold text-zinc-500 border border-zinc-200 dark:border-zinc-800 dark:text-zinc-400 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-sm"
+                >
+                  {s}
+                </motion.span>
+              ))}
             </div>
-          ))}
+          </motion.div>
+        </div>
+
+        {/* Right Side: Floating Orbits */}
+        <div className="md:w-1/2 flex justify-center items-center relative h-[400px] w-full mt-12 md:mt-0">
+          {/* Center Hub */}
+          <div className="absolute z-20 w-24 h-24 rounded-full bg-zinc-900 dark:bg-white shadow-[0_0_40px_rgba(0,0,0,0.1)] dark:shadow-[0_0_40px_rgba(255,255,255,0.2)] flex items-center justify-center">
+            <span className="font-extrabold text-white dark:text-zinc-900 text-xl tracking-tighter">Core</span>
+          </div>
+
+          {mounted && coreSkills.map((skill, index) => {
+            const angle = (index / coreSkills.length) * Math.PI * 2;
+            const radius = 140; // Orbit radius
+            const x = Math.cos(angle) * radius;
+            const y = Math.sin(angle) * radius;
+
+            return (
+              <motion.div
+                key={skill}
+                className="absolute z-10 w-20 h-20 rounded-full bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-lg flex items-center justify-center shadow-zinc-200/50 dark:shadow-zinc-900/50"
+                initial={{ x: 0, y: 0, opacity: 0, scale: 0 }}
+                whileInView={{ x, y, opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  type: "spring",
+                  stiffness: 50,
+                  damping: 10,
+                  delay: index * 0.1,
+                }}
+                animate={{
+                  y: [y, y - 10, y], // Floating effect
+                }}
+                /* Overriding transition for continuous floating */
+                style={{ originX: 0.5, originY: 0.5 }}
+              >
+                <motion.div 
+                  className="w-full h-full absolute rounded-full"
+                  animate={{ rotate: 360 }}
+                  transition={{ repeat: Infinity, duration: 20 + index * 2, ease: "linear" }}
+                />
+                <span className="relative z-10 text-xs font-bold text-zinc-800 dark:text-zinc-200 text-center px-1">
+                  {skill}
+                </span>
+              </motion.div>
+            );
+          })}
+          
+          {/* Orbit Rings */}
+          <div className="absolute w-[280px] h-[280px] rounded-full border border-zinc-200 dark:border-zinc-800 border-dashed opacity-50 animate-[spin_40s_linear_infinite]"></div>
+          <div className="absolute w-[400px] h-[400px] rounded-full border border-zinc-100 dark:border-zinc-800/50 border-dashed opacity-30 animate-[spin_60s_linear_infinite_reverse]"></div>
         </div>
       </div>
     </section>

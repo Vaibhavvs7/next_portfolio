@@ -1,111 +1,145 @@
+"use client";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+
+const TiltCard = ({ project }) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div
+      style={{
+        rotateX,
+        rotateY,
+        transformStyle: "preserve-3d",
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="group relative flex flex-col rounded-[2rem] bg-white/60 dark:bg-zinc-900/40 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800 shadow-md hover:shadow-2xl overflow-hidden h-full cursor-pointer perspective-1000"
+    >
+      <div 
+        style={{ transform: "translateZ(50px)" }}
+        className="h-48 w-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center overflow-hidden rounded-t-[2rem]"
+      >
+        {project.image ? (
+          <img src={project.image} alt={project.title} className="object-cover w-full h-full grayscale-[20%] group-hover:grayscale-0 transition duration-500 group-hover:scale-110" />
+        ) : (
+          <span className="text-5xl text-zinc-300 dark:text-zinc-600">📦</span>
+        )}
+      </div>
+      
+      <div 
+        style={{ transform: "translateZ(75px)" }}
+        className="flex-1 flex flex-col p-6 sm:p-8 bg-gradient-to-t from-white/90 via-white/80 to-transparent dark:from-zinc-900/90 dark:via-zinc-900/80 -mt-20 z-10 rounded-b-[2rem]"
+      >
+        <h3 className="text-2xl font-bold mb-3 text-zinc-900 dark:text-white tracking-tight mt-12 group-hover:text-emerald-500 transition-colors">
+          {project.title}
+        </h3>
+        <p className="text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed flex-1 font-medium">
+          {project.description}
+        </p>
+        <div className="flex flex-wrap gap-2 mb-8 mt-auto">
+          {project.tech.map((t) => (
+            <span
+              key={t}
+              className="px-3 py-1 rounded-full text-xs font-bold bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300 shadow-sm"
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+        <div>
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="inline-flex items-center justify-center w-full gap-2 rounded-full px-6 py-3 text-sm font-bold bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 shadow-sm transition"
+          >
+            Explore Repo
+            <span className="transition-transform group-hover:translate-x-1">→</span>
+          </a>
+        </div>
+      </div>
+      
+      {/* Glossy Overlay */}
+      <motion.div 
+        style={{
+           transform: "translateZ(100px)",
+           background: `linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.3) 25%, transparent 30%)`,
+        }}
+        className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 mix-blend-overlay"
+      />
+    </motion.div>
+  );
+};
+
 export default function Projects() {
   const projects = [
     {
-      title: "AI-Powered Real-Time Collaborative Coding Platform",
-      description:
-        "Enables live code editing, AI-assisted file generation, and shared execution results with real-time presence and project management, boosting team productivity through faster workflows and reduced manual effort.",
-      tech: [
-        "Node.js",
-        "Socket.IO",
-        "Google Gemini",
-        "React",
-        "MongoDB",
-        "JWT",
-        "Bcrypt",
-        "Redis"
-      ],
+      title: "AI Collaborative Coding Platform",
+      description: "Live code editing with AI assistance, real-time sync via sockets, and robust workspace management to boost developer velocity.",
+      tech: ["Node.js", "Socket.IO", "Gemini", "React", "MongoDB"],
       link: "https://github.com/Vaibhavvs7/AI-Powered-Real-Time-Collaborative-Coding-Platform",
       image: "/real.png",
     },
     {
-      title: "Chat-with-PDF RAG",
-      description:
-        "Developed a system to query large PDF collections with source-cited, context-grounded answers, optimized for fast ingestion, scalable retrieval, and sub-second response times.",
-      tech: [
-        "Node.js",
-        "LangChain",
-        "Pinecone",
-        "Google Gemini",
-        "PDF.js"
-      ],
+      title: "Chat-with-PDF RAG Engine",
+      description: "Query large PDF collections and receive source-cited, context-grounded AI answers with sub-second hybrid retrieval via Pinecone.",
+      tech: ["LangChain", "Pinecone", "Gemini", "PDF.js"],
       link: "https://github.com/Vaibhavvs7/rag-with-pinecone-langchain",
       image: "/rag.jpg",
     },
     {
-      title: "X Post AI Agent using MCP",
-      description:
-        "Built an AI-driven agent that generates and posts content to X, with modular state management, secure API integration, and robust error handling for reliable automated tweeting.",
-      tech: [
-        "JavaScript",
-        "Node.js",
-        "X API v2",
-        "OAuth 1.0a",
-        "Modal Context Protocol",
-        "dotenv"
-      ],
+      title: "Autonomic X Post Agent",
+      description: "An AI-driven agent running on MCP that autonomically generates contextually relevant content and posts directly to X natively.",
+      tech: ["Node.js", "X API v2", "OAuth 1.0a", "MCP"],
       link: "https://github.com/Vaibhavvs7/MCP-X-",
       image: "/project2.jpg",
     },
   ];
+
   return (
-    <section
-      id="projects"
-      aria-labelledby="projects-title"
-      className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-16 bg-gradient-to-b from-gray-50 to-white dark:from-slate-950 dark:to-slate-900"
-    >
-      <div className="max-w-6xl w-full bg-white/60 dark:bg-white/5 backdrop-blur-md rounded-2xl shadow-lg ring-1 ring-black/5 dark:ring-white/10 p-4 sm:p-8 md:p-12">
-        <h2
-          id="projects-title"
-          className="text-4xl md:text-5xl font-extrabold text-center mb-12 tracking-tight"
+    <section id="projects" className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-24 relative z-10 w-full overflow-hidden">
+      <div className="max-w-6xl w-full perspective-1000">
+        <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           className="mb-16 text-center"
         >
-          <span className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent">
-            Projects
-          </span>
-        </h2>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p, idx) => (
-            <div
-              key={p.title}
-              className="group relative flex flex-col rounded-2xl bg-white dark:bg-slate-800/60 border border-blue-100 dark:border-blue-900 shadow-md hover:shadow-xl transition hover:-translate-y-1 focus-within:ring-2 focus-within:ring-blue-400/60 overflow-hidden"
-            >
-              {/* Project image (optional, fallback to gradient) */}
-              <div className="h-40 w-full bg-gradient-to-br from-blue-100 via-blue-200 to-purple-100 dark:from-blue-900/30 dark:via-blue-800/30 dark:to-purple-900/20 flex items-center justify-center">
-                {p.image ? (
-                  <img src={p.image} alt={p.title} className="object-cover w-full h-full" />
-                ) : (
-                  <span className="text-5xl text-blue-300 dark:text-blue-700">📦</span>
-                )}
-              </div>
-              <div className="flex-1 flex flex-col p-6">
-                <h3 className="text-xl font-bold mb-2 text-blue-700 dark:text-blue-400 tracking-tight">
-                  {p.title}
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                  {p.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {p.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-blue-50 text-blue-700 dark:bg-blue-500/15 dark:text-blue-300 ring-1 ring-blue-200/60 dark:ring-blue-400/20"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-auto">
-                  <a
-                    href={p.link}
-                    aria-label={`View ${p.title}`}
-                    className="inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold bg-blue-600 text-white hover:bg-blue-700 shadow-sm hover:shadow ring-1 ring-black/5 dark:ring-white/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                  >
-                    View Project
-                    <span className="transition-transform group-hover:translate-x-0.5">
-                      →
-                    </span>
-                  </a>
-                </div>
-              </div>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-zinc-900 dark:text-white mb-4 tracking-tight">
+            Featured Work
+          </h2>
+          <div className="h-1 w-20 bg-zinc-900 dark:bg-white rounded-full mx-auto"></div>
+        </motion.div>
+
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 perspective-1000">
+          {projects.map((p) => (
+            <div key={p.title} className="h-full perspective-1000">
+               <TiltCard project={p} />
             </div>
           ))}
         </div>

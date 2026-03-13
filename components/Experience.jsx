@@ -1,79 +1,116 @@
+import { motion, useScroll, useSpring } from "framer-motion";
+import { useRef } from "react";
+
 export default function Experience() {
-    const TechStack = [
-      "PHP",
-      "PostgreSQL",
-      "REST API",
-      "JavaScript",
-      "Bootstrap",
-      "Cron",
-    ];
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start center", "end center"],
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const roles = [
+    {
+      title: "Full Stack Developer Intern",
+      company: "Aspiring Media Tech Pvt Ltd",
+      date: "June 2024 – Sept 2024",
+      points: [
+        "Automated WhatsApp campaign dispatch with a PHP + RESTful API backend and PostgreSQL database, enabling one-tap delivery to 2,000+ recipients.",
+        "Built a scheduling engine with cron jobs and controlled batching (5-second intervals).",
+        "Developed interactive dashboards using JavaScript + Bootstrap.",
+        "Implemented secure role-based access control.",
+      ],
+      tech: ["PHP", "PostgreSQL", "JavaScript", "Bootstrap", "Cron"],
+    }
+  ];
+
   return (
-    <section id="experience" className="min-h-screen flex items-center justify-center px-6 py-16 bg-gradient-to-b from-gray-50 to-white dark:from-slate-950 dark:to-slate-900">
-      <div className="max-w-6xl w-full">
-        <h2 className="text-4xl font-extrabold mb-8 text-blue-700 dark:text-blue-400">Work Experience</h2>
-        <div className="grid md:grid-cols-2 gap-8 items-start bg-white dark:bg-slate-800/60 border border-blue-100 dark:border-blue-900 rounded-xl shadow-sm p-6 md:p-8 transition hover:shadow-lg relative">
-          <div>
-            <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">Full Stack Developer Intern</h3>
-            <div className="text-gray-600 dark:text-gray-300 mb-1">
-              Aspiring Media Tech Pvt Ltd, Vasai, Maharashtra &middot; June 2024 – Sept 2024
-            </div>
-            <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-200 mt-4">
-              <li>
-                Automated WhatsApp campaign dispatch with a PHP + RESTful API backend and PostgreSQL database, enabling one-tap delivery to 2,000+ recipients and reducing manual effort by 90%.
-              </li>
-              <li>
-                Built a scheduling engine with cron jobs and controlled batching (5-second intervals), ensuring reliable and timely campaign execution without throttling.
-              </li>
-              <li>
-                Developed interactive dashboards using JavaScript + Bootstrap to track delivery status, click-through rates, and user engagement in real time.
-              </li>
-              <li>
-                Implemented secure role-based access control (admin, campaign managers, and view-only roles), improving access control and ensuring data integrity across the platform.
-              </li>
-            </ul>
-          </div>
-          <div className="flex flex-col h-full justify-between">
-            <div>
-              <div className="mb-3 font-semibold text-blue-700 dark:text-blue-300 text-lg flex items-center gap-2">
-                <svg className="w-5 h-5 text-blue-500 dark:text-blue-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m4 4h1a2 2 0 002-2v-5a2 2 0 00-2-2h-1m-4 0H7a2 2 0 00-2 2v5a2 2 0 002 2h1" /></svg>
-                Tech Stack
-              </div>
-              <div className="grid grid-cols-2 gap-2 mb-6">
-                {TechStack.map((t) => (
-                  <span
-                    key={t}
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg text-[13px] font-medium bg-blue-50 text-blue-700 dark:bg-blue-500/15 dark:text-blue-200 ring-1 ring-blue-200/60 dark:ring-blue-400/20 shadow-sm"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-              <div className="mb-2 font-semibold text-purple-700 dark:text-purple-300 text-lg flex items-center gap-2">
-                <svg className="w-5 h-5 text-purple-500 dark:text-purple-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m9-4a4 4 0 10-8 0 4 4 0 008 0z" /></svg>
-                Soft Skills
-              </div>
-              <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-200 text-[15px] mb-2">
-                <li>Teamwork & Collaboration</li>
-                <li>Leadership & Initiative</li>
-                <li>Problem Solving</li>
-                <li>Adaptability</li>
-              </ul>
-            </div>
-            <div className="flex justify-end mt-4">
-              <a
-                href="./completionAspiring.pdf" // Update this path to your actual certificate file
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-green-600 hover:bg-green-700 text-white font-semibold shadow transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
-                title="View Completion Certificate"
+    <section id="experience" className="min-h-screen flex items-center justify-center px-6 py-24 relative z-10 w-full overflow-hidden">
+      <div className="max-w-4xl w-full relative" ref={ref}>
+        <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           className="mb-20 text-center"
+        >
+          <h2 className="text-4xl md:text-5xl font-extrabold text-zinc-900 dark:text-white mb-4 tracking-tight">Experience</h2>
+          <div className="h-1 w-20 bg-zinc-900 dark:bg-white rounded-full mx-auto"></div>
+        </motion.div>
+
+        <div className="relative">
+          {/* Timeline background line */}
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-zinc-200 dark:bg-zinc-800 -translate-x-1/2 rounded-full"></div>
+          
+          {/* Animated Glowing Line */}
+          <motion.div 
+            style={{ scaleY, originY: 0 }}
+            className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-emerald-400 to-indigo-500 shadow-[0_0_15px_rgba(52,211,153,0.5)] -translate-x-1/2 rounded-full z-10"
+          ></motion.div>
+
+          {roles.map((role, idx) => (
+            <div key={idx} className="relative flex flex-col md:flex-row items-center justify-between mb-16 w-full">
+              
+              {/* Timeline dot */}
+              <div className="absolute left-8 md:left-1/2 w-5 h-5 rounded-full bg-emerald-500 border-4 border-white dark:border-zinc-950 -translate-x-1/2 z-20 shadow-lg"></div>
+              
+              <motion.div 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="w-full pl-20 md:w-[45%] md:pl-0 md:pr-12 md:text-right"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
-                View Certificate
-              </a>
+                <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-1">{role.title}</h3>
+                <h4 className="text-lg font-medium text-zinc-600 dark:text-zinc-400 mb-2">{role.company}</h4>
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 mb-6">
+                  {role.date}
+                </span>
+
+                <div className="flex flex-wrap gap-2 md:justify-end">
+                  {role.tech.map((t) => (
+                    <span key={t} className="px-2 py-1 text-xs font-semibold rounded-md border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+
+              <motion.div 
+                 initial={{ opacity: 0, x: 50 }}
+                 whileInView={{ opacity: 1, x: 0 }}
+                 viewport={{ once: true, margin: "-100px" }}
+                 className="w-full pl-20 md:w-[45%] md:pl-12 mt-6 md:mt-0"
+              >
+                <div className="bg-white/60 dark:bg-zinc-900/40 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-lg transition">
+                  <ul className="space-y-3 text-sm text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                    {role.points.map((p, i) => (
+                      <li key={i} className="flex gap-3">
+                        <span className="text-emerald-500 mt-1">▹</span>
+                        <span>{p}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <div className="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800">
+                    <a
+                      href="./completionAspiring.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-bold text-zinc-900 dark:text-white hover:text-emerald-500 dark:hover:text-emerald-400 transition"
+                    >
+                      View Certificate →
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
