@@ -67,7 +67,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-xl mb-10 leading-relaxed font-medium"
           >
-            Software Engineer specializing in scalable web applications and AI-driven solutions. Crafting elegant experiences through clean, robust code.
+            Full-Stack Software Engineer building scalable web platforms, real-time applications, and AI-powered tools. I focus on clean architecture, performance, and delivering production-ready solutions.
           </motion.p>
 
           <motion.div
